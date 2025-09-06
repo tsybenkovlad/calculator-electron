@@ -9,7 +9,7 @@ const createWindow = () => {
         width: 400,
         height: 625
     })
-    /*Menu.setApplicationMenu(null);*/
+    Menu.setApplicationMenu(null);
     win.loadFile('index.html')
 }
 

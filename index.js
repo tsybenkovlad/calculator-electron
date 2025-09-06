@@ -9,11 +9,36 @@ function clear() {
 }
 
 function percent() {
+    expression.innerHTML += "%"
+    let str = expression.innerHTML
+    let arrSymbol = ["*", "/", "-", "+"]
+    let right;
+    let left;
+    for (let i = str.length-1; i >= 0; i--) {
+        if (arrSymbol.includes(str[i])) {
+            right = str.slice(i+1)
+            left = str.slice(0, i)
+            break;
+        }
+    }
+    right = right.slice(0, -1)
+    let symbol = str[left.length];
+    let leftDone = eval(left)
+    let calc;
+    if (symbol === "-" || symbol === "+") {
+        calc = leftDone + symbol + getPercent(leftDone, right)
+    }else {
+        calc = leftDone + symbol + (right / 100)
+    }
+    expression.innerHTML = eval(calc).toFixed(5)
+}
 
+function getPercent(number, percent) {
+    return (Number(number) * Number(percent)) / 100
 }
 
 function about() {
-    alert("(c) Tsybenko Vlad\nIvanychi 2025")
+    alert("© Tsybenko Vlad\nIvanychi 2025")
 }
 
 function equals() {

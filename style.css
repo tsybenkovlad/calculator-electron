@@ -33,6 +33,7 @@ td:active {
     overflow-x: auto;
     text-align: right;
     padding-top: 25px;
+    white-space: nowrap;
 }
 .buttonOther{
     background: #001230;
